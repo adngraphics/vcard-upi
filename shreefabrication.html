@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title id="page_title"></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload" style="padding-top: 0">
+
+		<!-- Nav -->
+			<!-- <nav id="nav">
+				<ul class="container">
+					<li><a href="#top">Top</a></li>
+					<li><a href="#work">Work</a></li>
+					<li><a href="#portfolio">Portfolio</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav> -->
+
+		<!-- Home -->
+			<article id="top" class="wrapper style1">
+				<div class="container">
+					<div class="row">
+						<div class="col-4 col-5-large col-12-medium">
+              <a class="upi_url" href="#">
+                <span class="image fit" style="border-radius: 0;">
+                  <img id="upi_img_src" src="" alt="" />
+                </span>
+              </a>
+						</div>
+						<div class="col-8 col-7-large col-12-medium">
+							<header>
+								<h1>Pay To <strong id="name"></strong></h1>
+                <div class="tooltip">
+                  <h2>UPI ID - 
+                    <span id="upi_id" style="color: #43B3E0; cursor: pointer;"></span> 
+                  </h2>
+                </div>
+                <p id="upi_id_message" style="color: red;"></p>
+							</header>
+							<a href="#" class="button large scrolly upi_url">PAY VIA UPI</a>
+						</div>
+					</div>
+				</div>
+			</article>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/configs.js"></script>
+      <script type="text/javascript"> 
+        $(document).ready(function () {
+          var used_config = configs.find(x => x.id == 'shreefabrication')
+          
+          $('.upi_url').attr("href", used_config.payment_url)
+          $('#upi_img_src').attr("src", used_config.img_src)
+          $('#page_title').html(used_config.name)
+          $('#name').html(used_config.name)
+          var upiIdElement = $('#upi_id')
+          upiIdElement.html(used_config.upi_id)
+          upiIdElement.on('click', function () {
+            onUpiIdCopied(used_config.upi_id)
+          })
+        })
+
+        function onUpiIdCopied(upiId) {
+          var $temp = $("<input>");
+          $("body").append($temp);
+          $temp.val(upiId).select();
+          //$temp.val(upiId).setSelectionRange(0, 99999); // For Mobile Devices
+          document.execCommand("copy");
+          $temp.remove();
+          $('#upi_id_message').html('Upi Id Copied: '+upiId)
+          setTimeout(() => {
+            $('#upi_id_message').html('')
+          }, 1000);
+        }
+      </script>
+	</body>
+</html>
