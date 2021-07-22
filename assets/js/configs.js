@@ -29,5 +29,11 @@ var configs = [
     img_src: './images/ahtastradersUpi.jpeg',
     upi_id: 'ahtastraders@icici',
     payment_url: 'upi://pay?pa=ahtastraders@icici&pn=AHTAS TRADERS&tr=EZYS9403080450&cu=INR&mc=5172'
+  },{
+    id: 'reliabletraders',
+    name: "Reliable Traders",
+    img_src: './images/ahtastradersUpi.jpeg',
+    upi_id: '9762010786@okbizaxis',
+    payment_url: 'upi://pay?pa=9762010786@okbizaxis&pn=reliable%20traders&mc=5251&aid=uGICAgIDr1uC8QA&tr=BCR2DN6T2P6MFET3'
   }
 ]
