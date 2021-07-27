@@ -47,6 +47,7 @@ var configs = [
     img_src: './images/venkat_bank.png',
     aacntno: '33392036296',
     payment_url: '',
-    ifscode: 'SBIN0012924'
+    ifscode: 'SBIN0012924',
+    bankName: 'State Bank Of India'
   }
 ]

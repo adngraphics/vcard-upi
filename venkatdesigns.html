@@ -1,88 +1,123 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title id="page_title"></title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload" style="padding-top: 0">
 
-		<!-- Nav -->
-			 <nav id="nav">
-				<ul class="container">
-					<li><a href="#top">Bank Details</a></li>
-					<!--<li><a href="#work">Work</a></li>
+<head>
+	<title id="page_title"></title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<style>
+		.copy-button {
+			width: 64px;
+			height: 30px;
+			padding: 0px;
+			font-size: 12px;
+			margin-left: 10px;
+		}
+	</style>
+</head>
+
+<body class="is-preload" style="padding-top: 0">
+
+	<!-- Nav -->
+	<nav id="nav">
+		<ul class="container">
+			<li><a href="#top">Bank Details</a></li>
+			<!--<li><a href="#work">Work</a></li>
 					<li><a href="#portfolio">Portfolio</a></li>
 					<li><a href="#contact">Contact</a></li>-->
-				</ul>
-			</nav> 
-		<!-- Home -->
-			<article id="top" class="wrapper style1">
-				<div class="container">
-					<div class="row">
-						<div class="col-4 col-5-large col-12-medium">
-              <a class="upi_url" href="#">
-                <span class="image fit" style="border-radius: 0;">
-                  <img id="upi_img_src" src="" alt="" />
-                </span>
-              </a>
-						</div>
-						<div class="col-8 col-7-large col-12-medium">
-							<header>
-								<h1><strong id="name"></strong></h1>
-                <div class="tooltip">
-                  <h2>Account No. - 
-                    <span id="aacntno" style="color: #43B3E0; cursor: pointer;"></span> 
-                  </h2>
-				  <h2 id="ifsc">IFSC Code- 
-					<span id="ifscode" style="color: #43B3E0; cursor: pointer;"></span>
-				  </h2>
-                </div>
-                <p id="aacntno_message" style="color: red;"></p>
-							</header>
-							<!--<a href="#" class="button large scrolly upi_url">PAY VIA UPI</a>-->
-						</div>
-					</div>
+		</ul>
+	</nav>
+	<!-- Home -->
+	<article id="top" class="wrapper style1" style="margin-top: 16px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-4 col-5-large col-12-medium">
+					<a class="upi_url" href="#">
+						<span class="image fit" style="border-radius: 0;">
+							<img id="upi_img_src" src="" alt="" />
+						</span>
+					</a>
 				</div>
-			</article>
+				<div class="col-8 col-7-large col-12-medium">
+					<header>
+						<h1><strong id="name"></strong></h1>
+						<div class="tooltip" style="text-align: left;">
+							<h2>Bank Name -
+								<span id="bankName" style="color: #43B3E0; cursor: pointer;"></span>
+							</h2>
+							<h2>Account No. -
+								<span id="aacntno_label" style="color: #43B3E0; cursor: pointer;"></span>
+								<button class="copy-button" id="aacntno_action">Copy</button>
+							</h2>
+							<h2 id="ifsc">IFSC Code -
+								<span id="ifscode_label" style="color: #43B3E0; cursor: pointer;"></span>
+								<button class="copy-button" id="ifscode_action">Copy</button>
+							</h2>
+						</div>
+						<p id="copy_message" style="color: red;"></p>
+					</header>
+					<!--<a href="#" class="button large scrolly upi_url">PAY VIA UPI</a>-->
+				</div>
+			</div>
+		</div>
+	</article>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="assets/js/configs.js"></script>
-      <script type="text/javascript"> 
-        $(document).ready(function () {
-          var used_config = configs.find(x => x.id == 'venkatdesigns')
-          
-          $('.upi_url').attr("href", used_config.payment_url)
-          $('#upi_img_src').attr("src", used_config.img_src)
-          $('#page_title').html(used_config.name)
-          $('#name').html(used_config.name)
-		  $('#ifscode').html(used_config.ifscode)
-          var upiIdElement = $('#aacntno')
-          upiIdElement.html(used_config.aacntno)
-          upiIdElement.on('click', function () {
-            onUpiIdCopied(used_config.aacntno)
-          })
-        })
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/configs.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var used_config = configs.find(x => x.id == 'venkatdesigns')
 
-        function onUpiIdCopied(aacntno) {
-          var $temp = $("<input>");
-          $("body").append($temp);
-          $temp.val(aacntno).select();
-          //$temp.val(upiId).setSelectionRange(0, 99999); // For Mobile Devices
-          document.execCommand("copy");
-          $temp.remove();
-          $('#aacntno_message').html('Upi Id Copied: '+aacntno)
-          setTimeout(() => {
-            $('#aacntno_message').html('')
-          }, 1000);
-        }
-      </script>
-	</body>
+			$('.upi_url').attr("href", used_config.payment_url)
+			$('#upi_img_src').attr("src", used_config.img_src)
+			$('#page_title').html(used_config.name)
+			$('#name').html(used_config.name)
+			$('#bankName').html(used_config.bankName)
+
+			var upiIdLabelElement = $('#aacntno_label')
+			upiIdLabelElement.html(used_config.aacntno)
+			var upiIdActionElement = $('#aacntno_action')
+			var msg_element = $('#copy_message')
+			var acc_message = 'Copied Acc No. - ' + used_config.aacntno
+			upiIdActionElement.on('click', function () {
+				onCopied(used_config.aacntno, msg_element, acc_message)
+			})
+			upiIdLabelElement.on('click', function () {
+				onCopied(used_config.aacntno, msg_element, acc_message)
+			})
+
+			var ifscCodeLabelElement = $('#ifscode_label')
+			ifscCodeLabelElement.html(used_config.ifscode)
+			var ifscCodeActionElement = $('#ifscode_action')
+			var ifsc_message = 'Copied IFSC Code - ' + used_config.ifscode
+			ifscCodeActionElement.on('click', function () {
+				onCopied(used_config.ifscode, msg_element, ifsc_message)
+			})
+			ifscCodeLabelElement.on('click', function () {
+				onCopied(used_config.ifscode, msg_element, ifsc_message)
+			})
+		})
+
+		function onCopied(_value, _elem, _msg) {
+			var $temp = $("<input>");
+			$("body").append($temp);
+			$temp.val(_value).select();
+			//$temp.val(upiId).setSelectionRange(0, 99999); // For Mobile Devices
+			document.execCommand("copy");
+			$temp.remove();
+			_elem.html(_msg)
+			setTimeout(() => {
+				$('#copy_message').html('')
+			}, 1000);
+		}
+	</script>
+</body>
+
 </html>
