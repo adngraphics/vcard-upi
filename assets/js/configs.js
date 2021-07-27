@@ -35,5 +35,11 @@ var configs = [
     img_src: './images/ahtastradersUpi.jpeg',
     upi_id: '9762010786@okbizaxis',
     payment_url: 'upi://pay?pa=9762010786@okbizaxis&pn=reliable%20traders&mc=5251&aid=uGICAgIDr1uC8QA&tr=BCR2DN6T2P6MFET3'
+  },{
+    id: 'adityadieselsales&service',
+    name: "Rahul Yardi",
+    img_src: './images/aditya_upi.jpeg',
+    upi_id: 'adityadiesel-1@oksbi',
+    payment_url: 'upi://pay?pa=adityadiesel-1@oksbi&pn=Rahul%20Yardi%20sales%20and%20service&aid=uGICAgIC1wafjLg'
   }
 ]
