@@ -20,9 +20,9 @@ var configs = [
   },{
     id: 'accurateeng',
     name: "Vinod Kakade",
-    img_src: '',
-    upi_id: '',
-    payment_url: ''
+    img_src: './images/accurateUpi.jpeg',
+    upi_id: 'kakadevinod.kakade@oksbi',
+    payment_url: 'upi://pay?pa=kakadevinod.kakade@oksbi&pn=Shreya%20kakade&aid=uGICAgIDo-IeAdA'
   },{
     id: 'ahtastraders',
     name: "Ahtas Traders",
@@ -41,5 +41,12 @@ var configs = [
     img_src: './images/Aditya_diesel_Upi.jpeg',
     upi_id: 'adityadiesel-1@oksbi',
     payment_url: 'upi://pay?pa=adityadiesel-1@oksbi&pn=Rahul%20Yardi%20sales%20and%20service&aid=uGICAgIC1wafjLg'
+  },{
+    id: 'venkatdesigns',
+    name: "Venkat Designs",
+    img_src: './images/venkat_bank.png',
+    aacntno: '33392036296',
+    payment_url: '',
+    ifscode: 'SBIN0012924'
   }
 ]
