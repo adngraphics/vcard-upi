@@ -38,7 +38,7 @@ var configs = [
   },{
     id: 'adityadieselsales&service',
     name: "Rahul Yardi",
-    img_src: './images/adityaUpi.jpeg',
+    img_src: './images/Aditya_diesel_Upi.jpeg',
     upi_id: 'adityadiesel-1@oksbi',
     payment_url: 'upi://pay?pa=adityadiesel-1@oksbi&pn=Rahul%20Yardi%20sales%20and%20service&aid=uGICAgIC1wafjLg'
   }
