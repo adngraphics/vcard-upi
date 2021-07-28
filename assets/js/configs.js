@@ -49,5 +49,11 @@ var configs = [
     payment_url: '',
     ifscode: 'SBIN0012924',
     bankName: 'State Bank Of India'
+  },{
+    id: 'yadneshharibhakta',
+    name: "Coming Soon",
+    img_src: '',
+    upi_id: '',
+    payment_url: ''
   }
 ]
